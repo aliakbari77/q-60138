@@ -1,8 +1,3 @@
-from math import pi
-from multiprocessing.sharedctypes import Value
-from turtle import pos
-
-
 class Piece:
     def __init__(self, sort: chr, color: str, position: tuple) -> None:
         self.sort = sort
@@ -90,12 +85,7 @@ class Board:
                         return
         print(color, "is not Mate")
 
-
-
-
-        
-
-s = Piece("P", "white", (10, 10))
+s = Piece("P", "white", (-10, -9))
 b = Board()
 b.add(s)
-b.isMate("black")
+b.isMate("white")
