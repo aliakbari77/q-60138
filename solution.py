@@ -73,12 +73,29 @@ class Board:
         if (color == "black"):
             currentPosition = self.position["KB"].position
         
-        self.checkAroundCell(currentPosition)
+        self.checkAroundCell(currentPosition, color)
     
-    def checkAroundCell(self, position):
-        pass
+    def checkAroundCell(self, position, color):
+        print(position[0] - 1, position[0] + 1)
+        print(position[1] + 1, position[1] - 1)
+        for i in range(position[0] - 1, position[0] + 2):
+            for j in range(position[1] + 1, position[1] - 2, -1):
+                if ((i, j) == position):
+                    continue
+                print("hello")
+                for k in self.position:
+                    if (self.position[k].position == (i, j)
+                        and self.position[k].color != color):
+                        print(color, "is Mate.")
+                        return
+        print(color, "is not Mate")
+
+
+
+
         
 
 s = Piece("P", "white", (10, 10))
 b = Board()
 b.add(s)
+b.isMate("black")
